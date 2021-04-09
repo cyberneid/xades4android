@@ -43,12 +43,16 @@ public class ValidationData
             List<X509Certificate> certs,
             Collection<X509CRL> crls)
     {
-        if (null == certs)
-            throw new NullPointerException("Null cert path");
-        if (certs.isEmpty())
-            throw new IllegalArgumentException("Empty cert path");
+//        if (null == certs)
+//            throw new NullPointerException("Null cert path");
+//        if (certs.isEmpty())
+//            throw new IllegalArgumentException("Empty cert path");
 
-        this.certs = Collections.unmodifiableList(certs);
+    	if(null != certs)
+    		this.certs = Collections.unmodifiableList(certs);
+    	else
+    		this.certs = null;
+    	
         if (null == crls)
             this.crls = Collections.emptyList();
         else

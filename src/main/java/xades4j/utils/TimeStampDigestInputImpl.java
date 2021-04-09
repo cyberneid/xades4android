@@ -103,9 +103,12 @@ class TimeStampDigestInputImpl implements TimeStampDigestInput
 
             if (refData.isByteArray())
             {
+            	System.out.println("TSA:");
+            	System.out.println(new String(refData.getBytes()));
                 digestInput.write(refData.getBytes());
             } else if (refData.isOctetStream())
             {
+            	System.out.println("octet stream");
                 StreamUtils.readWrite(refData.getOctetStream(), digestInput);
             }
         }

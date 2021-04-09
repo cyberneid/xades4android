@@ -40,7 +40,7 @@ import xades4j.xml.marshalling.algorithms.AlgorithmsParametersMarshallingProvide
  * Produces XAdES-C signatures.
  * @author Luís
  */
-class SignerC extends SignerT
+public class SignerC extends SignerT
 {
     private final ValidationDataProvider validationDataProvider;
 

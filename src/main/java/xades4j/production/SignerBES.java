@@ -62,7 +62,7 @@ import xades4j.xml.marshalling.algorithms.AlgorithmsParametersMarshallingProvide
  * Base logic for producing XAdES signatures (XAdES-BES).
  * @author Luís
  */
-class SignerBES implements XadesSigner
+public class SignerBES implements XadesSigner
 {
 
     static

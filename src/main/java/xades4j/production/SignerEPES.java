@@ -38,7 +38,7 @@ import xades4j.xml.marshalling.algorithms.AlgorithmsParametersMarshallingProvide
  * Produces XAdES-EPES signatures.
  * @author Luís
  */
-class SignerEPES extends SignerBES
+public class SignerEPES extends SignerBES
 {
     private final SignaturePolicyInfoProvider policyInfoProvider;
     /**/

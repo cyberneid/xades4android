@@ -4,7 +4,7 @@
     <groupId>com.mobilejazz.android.xades4android</groupId>
     <artifactId>xades4android</artifactId>
     <packaging>jar</packaging>
-    <version>1.3.3-SNAPSHOT</version>
+    <version>1.3.4-SNAPSHOT</version>
     <name>xades4android</name>
     <url>https://github.com/mobilejazz/xades4android</url>
 

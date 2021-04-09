@@ -40,7 +40,7 @@ import xades4j.xml.marshalling.algorithms.AlgorithmsParametersMarshallingProvide
  * will be injected after construction via {@code setPolicyProvider}.
  * @author Luís
  */
-class SignerT extends SignerBES
+public class SignerT extends SignerBES
 {
     private SignaturePolicyInfoProvider policyInfoProvider;
 
