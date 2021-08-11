@@ -220,6 +220,7 @@ public final class XadesProfileCore
         }
         catch (RuntimeException ex)
         {
+        	ex.printStackTrace();
             throw new XadesProfileResolutionException(ex.getMessage(), ex);
         }
     }

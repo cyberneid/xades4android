@@ -34,6 +34,8 @@ import org.apache.xml.security.signature.XMLSignatureException;
 import org.apache.xml.security.transforms.Transforms;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
+import org.w3c.dom.NodeList;
+
 import xades4j.XAdES4jXMLSigException;
 import xades4j.algorithms.GenericAlgorithm;
 import xades4j.properties.QualifyingProperty;
@@ -347,5 +349,19 @@ class SignatureUtils
         {
             throw new QualifyingPropertiesIncorporationException("Cannot get the referenced SignedProperties", ex);
         }
+    }
+    
+    static void checkEnveloping(Element signatureElement) throws QualifyingPropertiesIncorporationException
+    {    
+    	NodeList objectElements = signatureElement.getOwnerDocument().getElementsByTagNameNS("http://www.w3.org/2000/09/xmldsig#", "Object");
+    	
+    	for(int i = 0; i < objectElements.getLength(); i++)
+    	{
+    		Element e = (Element)objectElements.item(i);
+    		if(e.hasAttribute("Id"))
+    		{
+    			DOMHelper.useIdAsXmlId(e);		
+    		}
+    	}
     }
 }

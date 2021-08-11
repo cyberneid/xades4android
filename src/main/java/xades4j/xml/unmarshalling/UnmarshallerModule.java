@@ -61,7 +61,14 @@ abstract class UnmarshallerModule<TXml>
 
         for (QualifyingPropertyFromXmlConverter<TXml> conv : converters)
         {
-            conv.convertFromObjectTree(xmlProps, propertyDataCollector);
+        	try
+        	{
+        		conv.convertFromObjectTree(xmlProps, propertyDataCollector);
+        	}
+        	catch(Exception ex)
+        	{
+        		
+        	}
         }
 
         if (domConverters != null)

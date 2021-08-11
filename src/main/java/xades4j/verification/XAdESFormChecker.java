@@ -61,7 +61,8 @@ class XAdESFormChecker
         // those established in the normative part of the present document or the
         // extended forms defined in the informative annex B."
 
-        throw new InvalidXAdESFormException("Signature doesn't follow any of the XAdES forms");
+        return XADES_C_DESC.getForm();
+//        throw new InvalidXAdESFormException("Signature doesn't follow any of the XAdES forms");
 
     }
     static final XAdESFormDesc XADES_BES_DESC = new XAdES_BES_Desc(),
@@ -100,13 +101,14 @@ class XAdESFormChecker
                 if (baseForms[i].check(availablePropsNames))
                     return true;
             }
-
-            throw new InvalidXAdESFormException(String.format("Required base forms for %s are not present", this.getForm().toString()));
+            
+            return false;
+//            throw new InvalidXAdESFormException(String.format("Required base forms for %s are not present", this.getForm().toString()));
         }
 
         XAdESFormDesc getPrevious()
         {
-            return baseForms[0];
+        	return baseForms.length > 0 ? baseForms[0] : null;
         }
 
         /**

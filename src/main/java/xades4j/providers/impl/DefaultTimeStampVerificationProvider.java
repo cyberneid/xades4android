@@ -64,7 +64,7 @@ import xades4j.providers.ValidationData;
 public class DefaultTimeStampVerificationProvider implements TimeStampVerificationProvider
 {
 
-    private static final Map<ASN1ObjectIdentifier, String> digestOidToUriMappings;
+	protected static final Map<ASN1ObjectIdentifier, String> digestOidToUriMappings;
 
     static
     {
@@ -78,12 +78,12 @@ public class DefaultTimeStampVerificationProvider implements TimeStampVerificati
     }
 
     // TODO this probably should be a provider to avoid being dependent on a fixed set of algorithms
-    private static String uriForDigest(ASN1ObjectIdentifier digestalgOid)
+    protected static String uriForDigest(ASN1ObjectIdentifier digestalgOid)
     {
         return digestOidToUriMappings.get(digestalgOid);
     }
-    private final CertificateValidationProvider certificateValidationProvider;
-    private final MessageDigestEngineProvider messageDigestProvider;
+    protected final CertificateValidationProvider certificateValidationProvider;
+    protected final MessageDigestEngineProvider messageDigestProvider;
     private final JcaSimpleSignerInfoVerifierBuilder signerInfoVerifierBuilder;
     private final JcaX509CertificateConverter x509CertificateConverter;
     private final JcaX509CertSelectorConverter x509CertSelectorConverter;

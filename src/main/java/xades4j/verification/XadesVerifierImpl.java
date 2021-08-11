@@ -139,6 +139,8 @@ class XadesVerifierImpl implements XadesVerifier
             rawSignatureVerifier.verify(rawCtx);
         }
 
+        SignatureUtils.checkEnveloping(signatureElem);
+        
         /* Get and check the QualifyingProperties element */
 
         Element qualifyingPropsElem = SignatureUtils.getQualifyingPropertiesElement(signature);

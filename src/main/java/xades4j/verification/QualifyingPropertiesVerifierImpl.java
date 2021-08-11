@@ -56,11 +56,18 @@ class QualifyingPropertiesVerifierImpl implements QualifyingPropertiesVerifier
         {
             QualifyingPropertyVerifier propVerifier = this.propertyVerifiersMapper.getVerifier(propData);
 
-            QualifyingProperty p = propVerifier.verify(propData, ctx);
-            if (null == p)
-                throw new PropertyVerifierErrorException(propData.getClass().getName());
+            try
+            {
+	            QualifyingProperty p = propVerifier.verify(propData, ctx);
+	            if (null == p)
+	                throw new PropertyVerifierErrorException(propData.getClass().getName());
 
-            props.add(new PropertyInfo(propData, p));
+	            props.add(new PropertyInfo(propData, p));
+            }
+            catch(Exception ex)
+            {
+            	
+            }
         }
 
         return Collections.unmodifiableCollection(props);
